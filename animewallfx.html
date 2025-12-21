@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Case Study: AnimeWallFX - A high-performance media gallery engineered with React and Supabase.">
+    <title>Case Study: AnimeWallFX</title>
+    
+    <style>
+        /* --- SPEED STACK CSS --- */
+        :root {
+            --bg-color: #050505;
+            --text-main: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --brand: #10b981;
+            --brand-glow: rgba(16, 185, 129, 0.15);
+            --border: rgba(255, 255, 255, 0.08);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: "ui-monospace", "SFMono-Regular", "SF Mono", monospace;
+            --max-width: 1100px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg-color); color: var(--text-main); font-family: var(--font-main); line-height: 1.6; }
+        
+        /* Image Optimization: Aspect Ratio protection */
+        img { max-width: 100%; height: auto; display: block; border-radius: 8px; background-color: #111; } 
+        
+        /* Layout */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); height: 70px; display: flex; align-items: center;
+        }
+        .nav-inner { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+        .back-link { text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; }
+        .back-link:hover { color: var(--brand); }
+        .badge { font-family: var(--font-mono); font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; background: var(--brand-glow); color: var(--brand); }
+
+        /* Content */
+        main { padding-top: 120px; padding-bottom: 80px; }
+        h1 { font-size: 2.5rem; line-height: 1.1; margin-bottom: 1rem; }
+        .intro-text { font-size: 1.1rem; color: var(--text-muted); max-width: 700px; margin-bottom: 1.5rem; }
+        
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 3rem; }
+        .tag { font-family: var(--font-mono); font-size: 0.85rem; color: var(--brand); background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--border); }
+
+        /* Grids & Cards */
+        .grid-2 { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-bottom: 3rem; }
+        .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: 1fr; margin-bottom: 3rem; }
+        
+        .card { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.02); }
+        .card-label { padding: 10px 15px; font-size: 0.8rem; color: var(--text-muted); border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.03); font-family: var(--font-mono); }
+        
+        /* Headings Fix for SEO */
+        h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: white; border-left: 3px solid var(--brand); padding-left: 1rem; }
+        h3 { font-size: 1.1rem; margin-bottom: 1rem; color: white; margin-top: 2rem; }
+
+        .btn { display: inline-block; padding: 12px 30px; background: var(--brand); color: black; font-weight: bold; text-decoration: none; border-radius: 6px; margin-top: 2rem; }
+        .btn:hover { background: #34d399; }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-3 { grid-template-columns: 1fr 1fr 1fr; }
+            h1 { font-size: 4rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+            <span class="badge">CASE STUDY</span>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <header>
+            <h1>AnimeWallFX</h1>
+            <p class="intro-text">A high-performance media gallery engineered to load thousands of HD assets without browser lag.</p>
+            <div class="tags">
+                <span class="tag">React.js</span>
+                <span class="tag">Supabase</span>
+                <span class="tag">Lazy Loading</span>
+            </div>
+        </header>
+
+        <div class="card" style="margin-bottom: 4rem;">
+            <img src="images/anime-hero.webp" alt="Main Dashboard Desktop View" width="1200" height="675" fetchpriority="high">
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <h2>The Challenge</h2>
+                <p style="color: var(--text-muted);">Standard image galleries suffer from layout shifts (CLS) and slow loading times when handling HD wallpapers. The goal was to build a site that feels "instant" on mobile networks.</p>
+            </div>
+            <div>
+                <h2 style="border-color: #3b82f6;">The Solution</h2>
+                <p style="color: var(--text-muted);">Implemented a <strong>virtualized grid system</strong> combined with aggressive image optimization via Supabase, reducing First Contentful Paint (FCP) to under 0.8s.</p>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div style="text-align: center;">
+                <h3>Mobile Responsive Layout</h3>
+                <div class="card" style="max-width: 380px; margin: 0 auto;">
+                    <div class="card-label">Mobile View</div>
+                    <img src="images/anime-mobile.webp" alt="Mobile View" width="380" height="800" loading="lazy">
+                </div>
+            </div>
+            <div>
+                <h3>Performance Benchmarks</h3>
+                <div class="card" style="margin-bottom: 1.5rem;">
+                    <div class="card-label">Initial Lighthouse Score</div>
+                    <img src="images/anime-score.webp" alt="Lighthouse Score" width="800" height="450" loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <h3>Deep Dive</h3>
+        <div class="grid-3">
+            <div class="card">
+                <div class="card-label">Score under Load</div>
+                <img src="images/anime-score-heavyload.webp" alt="Heavy Load Score" width="400" height="225" loading="lazy">
+            </div>
+            <div class="card">
+                <div class="card-label">Grid Architecture</div>
+                <img src="images/anime-grid.webp" alt="Grid Layout" width="400" height="225" loading="lazy">
+            </div>
+            <div class="card">
+                <div class="card-label">Detail View</div>
+                <img src="images/anime-feature.webp" alt="Detail View" width="400" height="225" loading="lazy">
+            </div>
+        </div>
+
+        <div style="text-align: center; border-top: 1px solid var(--border); padding-top: 3rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1rem; border: none; padding: 0;">Live Demo Available</h2>
+            <a href="https://www.animewallfx.site/" target="_blank" class="btn">Visit Live Site</a>
+            <div style="margin-top: 1rem;">
+                <a href="index.html" style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem;">Back to Portfolio</a>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

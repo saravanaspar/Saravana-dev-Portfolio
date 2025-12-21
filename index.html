@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="N SaravanaKumar - Full Stack Developer & Technical Artist based in Chennai.">
+    <title>SaravanaKumar | Technical Developer</title>
+    
+    <style>
+        /* --- CORE VARIABLES (The "System" Theme) --- */
+        :root {
+            --bg-color: #050505;
+            --card-bg: rgba(20, 20, 20, 0.6);
+            --text-main: #e5e5e5;
+            --text-muted: #a3a3a3;
+            --brand: #10b981;       /* Emerald */
+            --brand-glow: rgba(16, 185, 129, 0.15);
+            --warning: #f59e0b;     /* Amber */
+            --border: rgba(255, 255, 255, 0.08);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            --font-mono: "ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+            --max-width: 1100px;
+        }
+
+        /* --- RESET & BASE --- */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- UTILITIES --- */
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+        .flex { display: flex; }
+        .justify-between { justify-content: space-between; }
+        .items-center { align-items: center; }
+        .gap-2 { gap: 0.5rem; }
+        .gap-4 { gap: 1rem; }
+        .grid { display: grid; gap: 1.5rem; }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-4 { grid-template-columns: 1fr 1fr; }
+        .text-brand { color: var(--brand); }
+        .text-warning { color: var(--warning); }
+        .text-muted { color: var(--text-muted); }
+        .font-mono { font-family: var(--font-mono); }
+        .uppercase { text-transform: uppercase; letter-spacing: 0.05em; }
+        .bold { font-weight: 700; }
+        .center { text-align: center; }
+        
+        /* --- COMPONENTS --- */
+        /* Nav */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            height: 70px; display: flex; align-items: center;
+        }
+        
+        /* Hero */
+        .hero { padding-top: 160px; padding-bottom: 100px; }
+        .status-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 6px 12px; border-radius: 50px;
+            background: var(--brand-glow); border: 1px solid rgba(16, 185, 129, 0.2);
+            color: var(--brand); font-size: 0.8rem; font-family: var(--font-mono); margin-bottom: 24px;
+        }
+        .pulse { width: 8px; height: 8px; background: var(--brand); border-radius: 50%; animation: pulse 2s infinite; }
+        
+        h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
+        
+        /* FIXED LINE BELOW: Added background-clip: text; */
+        h1 span { 
+            background: linear-gradient(to right, #10b981, #06b6d4); 
+            background-clip: text; 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        
+        .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
+        
+        .btn {
+            display: inline-block; padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem;
+        }
+        .btn-primary { background: white; color: black; }
+        .btn-primary:hover { background: #e5e5e5; }
+        .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
+        .btn-outline:hover { border-color: var(--brand); color: var(--brand); }
+
+        /* Cards */
+        .glass-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-card:hover { border-color: rgba(16, 185, 129, 0.4); transform: translateY(-4px); }
+        .project-card { padding: 32px; position: relative; overflow: hidden; display: block; }
+        .project-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .tag { font-size: 0.75rem; padding: 4px 8px; border-radius: 4px; font-family: var(--font-mono); }
+        .tag-brand { background: var(--brand-glow); color: var(--brand); }
+        .tag-warn { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+
+        /* Animation */
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
+            h1 { font-size: 4.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container flex justify-between items-center" style="width: 100%;">
+            <span class="font-mono bold text-brand" style="font-size: 1.1rem;">&lt;NSK /&gt;</span>
+            <div class="flex gap-4" style="font-size: 0.9rem; font-weight: 500;">
+                <a href="#work" class="text-muted hover:text-brand">Work</a>
+                <a href="mailto:saravanaspar50@gmail.com" class="text-brand">Hire Me</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        
+        <section class="container hero">
+            <div class="reveal">
+                <div class="status-badge">
+                    <div class="pulse"></div>
+                    Available for Overflow Work
+                </div>
+                <h1>
+                    I build logic that <br>
+                    <span>doesn't break.</span>
+                </h1>
+                <p>
+                    Chennai-based <strong>Full Stack Developer</strong> & <strong>Technical 3D Artist</strong>. 
+                    I partner with agencies to build high-performance backends and complex React applications.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#work" class="btn btn-primary">View Projects</a>
+                    <a href="mailto:saravanaspar50@gmail.com" class="btn btn-outline">Contact Me</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-32 reveal">
+            <h2 class="font-mono text-muted uppercase" style="font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 2rem;">Technical Arsenal</h2>
+            <div class="grid grid-4">
+                <div class="glass-card center">
+                    <div class="bold" style="font-size: 1.1rem; color: white;">React + TS</div>
+                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Frontend Logic</div>
+                </div>
+                <div class="glass-card center">
+                    <div class="bold" style="font-size: 1.1rem; color: white;">Supabase</div>
+                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Postgres DB</div>
+                </div>
+                <div class="glass-card center">
+                    <div class="bold" style="font-size: 1.1rem; color: white;">Node.js</div>
+                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">API Systems</div>
+                </div>
+                <div class="glass-card center">
+                    <div class="bold" style="font-size: 1.1rem; color: white;">Blender</div>
+                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Technical Art</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="container reveal" style="padding-bottom: 80px;">
+            <h2 class="font-mono text-muted uppercase" style="font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 2rem;">Case Studies</h2>
+            
+            <div class="grid grid-2">
+                <a href="animewallfx.html" class="glass-card project-card">
+                    <div class="project-title text-brand">
+                        AnimeWallFX <span>&rarr;</span>
+                    </div>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">
+                        High-performance media gallery. Reduced load times by 60% using virtualization and Supabase caching.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="tag tag-brand">Performance</span>
+                        <span class="tag tag-brand">Lazy Load</span>
+                    </div>
+                </a>
+
+                <a href="albiontoolkit.html" class="glass-card project-card" style="border-color: rgba(245, 158, 11, 0.2);">
+                    <div class="project-title text-warning">
+                        AlbionToolkit <span>&rarr;</span>
+                    </div>
+                    <div class="tag tag-warn" style="display: inline-block; margin-bottom: 1rem;">PENDING DEPLOYMENT</div>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">
+                        Complex economy calculator engine. Uses client-side state management for zero-latency math.
+                    </p>
+                    <div class="flex gap-2">
+                        <span class="tag tag-warn">Logic Engine</span>
+                        <span class="tag tag-warn">Math</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
+        <p>&copy; 2025 N SaravanaKumar. Chennai, India.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('active'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
