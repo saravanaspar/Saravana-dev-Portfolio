@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buildify - AI-Powered Discord Server Architect.">
+    <title>Case Study: Buildify</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <style>
+        :root {
+            --bg-color: #050505; --text-main: #e5e5e5; --text-muted: #a3a3a3;
+            --brand: #10b981; --brand-glow: rgba(16, 185, 129, 0.15);
+            --border: rgba(255, 255, 255, 0.08);
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: "ui-monospace", "SFMono-Regular", monospace;
+            --max-width: 1100px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: var(--bg-color); color: var(--text-main); font-family: var(--font-main); line-height: 1.6; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 1.5rem; }
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 100;
+            background: rgba(5, 5, 5, 0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border); height: 70px; display: flex; align-items: center;
+        }
+        .nav-inner { display: flex; justify-content: space-between; width: 100%; align-items: center; }
+        .back-link { text-decoration: none; color: white; font-weight: 600; font-size: 0.9rem; }
+        .back-link:hover { color: var(--brand); }
+        main { padding-top: 120px; padding-bottom: 80px; }
+        h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 1rem; }
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 2rem; }
+        .tag { font-family: var(--font-mono); font-size: 0.85rem; color: var(--brand); background: rgba(255,255,255,0.05); padding: 5px 10px; border-radius: 4px; border: 1px solid var(--border); }
+        .grid-2 { display: grid; gap: 2rem; grid-template-columns: 1fr; margin-bottom: 2rem; }
+        .card { border: 1px solid var(--border); border-radius: 12px; padding: 32px; background: rgba(255,255,255,0.02); }
+        h2 { font-size: 1.5rem; margin-bottom: 1.5rem; color: white; border-left: 3px solid var(--brand); padding-left: 1rem; }
+        .btn { display: inline-block; padding: 14px 32px; background: var(--brand); color: black; font-weight: bold; text-decoration: none; border-radius: 6px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; font-size: 0.9rem; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid var(--border); }
+        th { color: var(--brand); font-family: var(--font-mono); text-transform: uppercase; font-size: 0.75rem; }
+        @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container nav-inner">
+            <a href="index.html" class="back-link">&larr; Back to Portfolio</a>
+            <span class="tag" style="border:none; background: var(--brand-glow);">ACTIVE PROJECT</span>
+        </div>
+    </nav>
+    <main class="container">
+        <header>
+            <h1>Buildify: The AI Architect</h1>
+            <p style="font-size: 1.25rem; color: var(--text-muted); max-width: 800px; margin-bottom: 2rem;">A military-grade server infrastructure system that combines Gemini-powered AI generation with a deep-tier disaster recovery engine.</p>
+            <div class="tags">
+                <span class="tag">Google Gemini Pro</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">PostgreSQL (RLS)</span>
+                <span class="tag">Redis Queue</span>
+            </div>
+        </header>
+
+        <div class="grid-2">
+            <div class="card">
+                <h2>The Intelligence Layer</h2>
+                <p style="color: var(--text-muted);">Buildify uses a custom-tuned <strong>Gemini 1.5 Flash</strong> model to translate natural language into JSON-structured server manifests. Unlike template bots, Buildify understands context—if you ask for a "Cyberpunk RPG server," it doesn't just make channels; it creates tiered faction roles, lore-specific permissions, and specialized categories.</p>
+                <div style="margin-top: 1.5rem; background: #000; padding: 15px; border-radius: 6px; font-family: var(--font-mono); font-size: 0.8rem; color: #10b981;">
+                    > /generate prompt: "A minimal study group with library roles"<br>
+                    [System] Analyzing architecture...<br>
+                    [System] Constructing 14 channels, 8 roles... Done.
+                </div>
+            </div>
+            <div class="card">
+                <h2>Disaster Recovery</h2>
+                <p style="color: var(--text-muted);">The <strong>Safety Net</strong> module acts as a passive observer. Every channel deletion triggers an immediate snapshot of that channel's configuration. Features include:</p>
+                <ul style="color: var(--text-muted); margin-top: 1rem; font-size: 0.9rem; padding-left: 20px;">
+                    <li><strong>HTML Transcripts:</strong> Generates pixel-perfect backups of message history (images included).</li>
+                    <li><strong>Encrypted Backups:</strong> Full server states are stored with Row Level Security (RLS).</li>
+                    <li><strong>Recycle Bin:</strong> One-click restoration of accidental wipes.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 2rem;">
+            <h2>Tiered Ecosystem</h2>
+            <table>
+                <thead>
+                    <tr><th>Feature</th><th>Free</th><th>Elite ($8)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>AI Generation</td><td>3 Lifetime</td><td>Unlimited</td></tr>
+                    <tr><td>Backup Slots</td><td>1 Server</td><td>Unlimited</td></tr>
+                    <tr><td>Snapshot Depth</td><td>300 Msgs</td><td>2,500 Msgs</td></tr>
+                    <tr><td>Branding</td><td>Watermarked</td><td>White-Label</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="https://discord.com/oauth2/authorize?client_id=1455085759953506324" target="_blank" class="btn">Invite to New Server</a>
+            <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted);">*Recommended: Test /generate in a fresh server for best results.*</p>
+        </div>
+    </main>
+</body>
+</html>

@@ -56,7 +56,6 @@
         .center { text-align: center; }
         
         /* --- COMPONENTS --- */
-        /* Nav */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 100;
             background: rgba(5, 5, 5, 0.8);
@@ -66,7 +65,6 @@
             height: 70px; display: flex; align-items: center;
         }
         
-        /* Hero */
         .hero { padding-top: 160px; padding-bottom: 100px; }
         .status-badge {
             display: inline-flex; align-items: center; gap: 8px;
@@ -77,8 +75,6 @@
         .pulse { width: 8px; height: 8px; background: var(--brand); border-radius: 50%; animation: pulse 2s infinite; }
         
         h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px; letter-spacing: -0.02em; }
-        
-        /* FIXED LINE BELOW: Added background-clip: text; */
         h1 span { 
             background: linear-gradient(to right, #10b981, #06b6d4); 
             background-clip: text; 
@@ -88,15 +84,12 @@
         
         .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 40px; }
         
-        .btn {
-            display: inline-block; padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem;
-        }
+        .btn { display: inline-block; padding: 14px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; }
         .btn-primary { background: white; color: black; }
         .btn-primary:hover { background: #e5e5e5; }
         .btn-outline { border: 1px solid rgba(255,255,255,0.2); color: white; }
         .btn-outline:hover { border-color: var(--brand); color: var(--brand); }
 
-        /* Cards */
         .glass-card {
             background: var(--card-bg);
             border: 1px solid var(--border);
@@ -111,12 +104,10 @@
         .tag-brand { background: var(--brand-glow); color: var(--brand); }
         .tag-warn { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
 
-        /* Animation */
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
         .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Responsive */
         @media (min-width: 768px) {
             .grid-2 { grid-template-columns: 1fr 1fr; }
             .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -137,17 +128,13 @@
     </nav>
 
     <main>
-        
         <section class="container hero">
             <div class="reveal">
                 <div class="status-badge">
                     <div class="pulse"></div>
                     Available for Overflow Work
                 </div>
-                <h1>
-                    I build logic that <br>
-                    <span>doesn't break.</span>
-                </h1>
+                <h1>I build logic that <br> <span>doesn't break.</span></h1>
                 <p>
                     Chennai-based <strong>Full Stack Developer</strong> & <strong>Technical 3D Artist</strong>. 
                     I partner with agencies to build high-performance backends and complex React applications.
@@ -171,12 +158,12 @@
                     <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Postgres DB</div>
                 </div>
                 <div class="glass-card center">
-                    <div class="bold" style="font-size: 1.1rem; color: white;">Node.js</div>
-                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">API Systems</div>
+                    <div class="bold" style="font-size: 1.1rem; color: white;">C++ / OpenCV</div>
+                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Computer Vision</div>
                 </div>
                 <div class="glass-card center">
-                    <div class="bold" style="font-size: 1.1rem; color: white;">Blender</div>
-                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">Technical Art</div>
+                    <div class="bold" style="font-size: 1.1rem; color: white;">Arch Linux</div>
+                    <div class="text-muted" style="font-size: 0.8rem; margin-top: 4px;">System Architecture</div>
                 </div>
             </div>
         </section>
@@ -185,35 +172,53 @@
             <h2 class="font-mono text-muted uppercase" style="font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 2rem;">Case Studies</h2>
             
             <div class="grid grid-2">
-                <a href="animewallfx.html" class="glass-card project-card">
-                    <div class="project-title text-brand">
-                        AnimeWallFX <span>&rarr;</span>
+                <a href="buildify.html" class="glass-card project-card">
+                    <div class="project-title text-brand">Buildify <span>&rarr;</span></div>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">AI-powered Discord infrastructure engine using Gemini to architect entire communities in seconds.</p>
+                    <div class="flex gap-2">
+                        <span class="tag tag-brand">AI / Gemini</span>
+                        <span class="tag tag-brand">Node.js</span>
                     </div>
-                    <p class="text-muted" style="margin-bottom: 1.5rem;">
-                        High-performance media gallery. Reduced load times by 60% using virtualization and Supabase caching.
-                    </p>
+                </a>
+
+                <a href="vehicle360.html" class="glass-card project-card">
+                    <div class="project-title text-brand">Vehicle 360 <span>&rarr;</span></div>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">Bird-eye view camera system using C++ and OpenCV for real-time multi-camera stitching.</p>
+                    <div class="flex gap-2">
+                        <span class="tag tag-brand">C++</span>
+                        <span class="tag tag-brand">OpenCV</span>
+                    </div>
+                </a>
+
+                <a href="customos.html" class="glass-card project-card">
+                    <div class="project-title text-brand">Custom OS <span>&rarr;</span></div>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">Proprietary Arch-based OS for a classified brand, featuring RFID auto-start and full white-labeling.</p>
+                    <div class="flex gap-2">
+                        <span class="tag tag-brand">Arch Linux</span>
+                        <span class="tag tag-brand">RFID Logic</span>
+                    </div>
+                </a>
+
+                <a href="animewallfx.html" class="glass-card project-card">
+                    <div class="project-title text-brand">AnimeWallFX <span>&rarr;</span></div>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">High-performance media gallery. Reduced load times by 60% using virtualization.</p>
                     <div class="flex gap-2">
                         <span class="tag tag-brand">Performance</span>
-                        <span class="tag tag-brand">Lazy Load</span>
+                        <span class="tag tag-brand">Supabase</span>
                     </div>
                 </a>
 
                 <a href="albiontoolkit.html" class="glass-card project-card" style="border-color: rgba(245, 158, 11, 0.2);">
-                    <div class="project-title text-warning">
-                        AlbionToolkit <span>&rarr;</span>
-                    </div>
+                    <div class="project-title text-warning">AlbionToolkit <span>&rarr;</span></div>
                     <div class="tag tag-warn" style="display: inline-block; margin-bottom: 1rem;">PENDING DEPLOYMENT</div>
-                    <p class="text-muted" style="margin-bottom: 1.5rem;">
-                        Complex economy calculator engine. Uses client-side state management for zero-latency math.
-                    </p>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">Complex economy calculator engine with zero-latency client-side math.</p>
                     <div class="flex gap-2">
                         <span class="tag tag-warn">Logic Engine</span>
-                        <span class="tag tag-warn">Math</span>
+                        <span class="tag tag-warn">React</span>
                     </div>
                 </a>
             </div>
         </section>
-
     </main>
 
     <footer style="border-top: 1px solid var(--border); padding: 40px 0; text-align: center; color: var(--text-muted); font-size: 0.9rem;">
@@ -226,17 +231,5 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
-
-    <script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/694caa77420bc819787f7fb4/1jd9qvn7c';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    </body>
+</body>
 </html>
